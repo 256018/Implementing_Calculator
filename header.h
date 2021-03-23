@@ -1,39 +1,53 @@
 #ifndef __CALCULATOR__
 #define __CALCULATOR__
 
+typedef struct complex_number
+{
+    /* data */
+    int real,img;
+}complex_number;
+
+typedef enum error_t
+{
+    ERROR_DIV_BY_ZERO = -2, /**< Division by 0 error */
+    ERROR_NULL_PTR = -1,    /**< Null pointer dereferncing error */
+    SUCCESS = 0             /**< Compute operation is successful */
+}error_t;
 /**
- * @brief Take two integer as input and return their addition.
+ * @brief Addition of two complex numbers.
  * 
  * @param num1 
  * @param num2 
- * @return int 
+ * @return error_t 
  */
-int sum(int num1,int num2);
+error_t sum(complex_number num1,complex_number num2,complex_number* complex_sum);
 
 /**
- * @brief Take two integer as input and return their difference.
+ * @brief Subtraction of two complex numbers.
  * 
  * @param num1 
  * @param num2 
- * @return int 
+ * @return error_t 
  */
-int difference(int num1,int num2);
+error_t difference(complex_number num1,complex_number num2,complex_number* complex_diff);
 
 /**
- * @brief Take two integer as input and return their multiplication.
+ * @brief Multiplication of two complex numbers.
  * 
  * @param num1 
  * @param num2 
- * @return int 
+ * @return error_t 
  */
-int multiply(int num1,int num2);
+error_t multiply(complex_number num1,complex_number num2,complex_number* complex_mul);
 
 /**
- * @brief Take two integer as input and return their division.
+ * @brief Division of two complex numbers.
  * 
  * @param num1 
  * @param num2 
- * @return int 
+ * @return error_t 
  */
-int division(int num1,int num2);
+error_t division(complex_number num1,complex_number num2,complex_number* complex_div);
+
+
 #endif
